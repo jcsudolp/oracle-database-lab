@@ -12,3 +12,7 @@ Name: Juan Carlos Sañudo Lapeña
 
 Professor: Richard Aviles Lopez
 
+
+
+See \[CONTRIBUTING.md](CONTRIBUTING.md) for branch and commit conventions.
+
