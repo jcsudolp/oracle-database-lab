@@ -14,5 +14,5 @@ Professor: Richard Aviles Lopez
 
 
 
-See \[CONTRIBUTING.md](CONTRIBUTING.md) for branch and commit conventions.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for branch and commit conventions.
 
