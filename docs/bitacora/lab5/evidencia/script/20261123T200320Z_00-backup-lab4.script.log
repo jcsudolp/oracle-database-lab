@@ -1,0 +1,17 @@
+=== LAB 5 · EVIDENCIA 00: BACKUP LAB4-FINAL ===
+2026-11-23T21:03:20+01:00
+
+=== Archivos de la copia ===
+total 725M
+-rw-r--r-- 1 juan_carlos juan_carlos  328 Nov 23 20:54 SHA256SUMS
+drwxr-xr-x 2 juan_carlos juan_carlos 4.0K Nov 23 20:53 extras
+-rw-r--r-- 1 juan_carlos juan_carlos    0 Nov 23 20:53 extras.lst
+-rw-r--r-- 1 juan_carlos juan_carlos 1.6K Nov 23 20:53 inventario.txt
+-rw-r--r-- 1 juan_carlos juan_carlos  253 Nov 23 20:54 manifiesto.txt
+-rw-r--r-- 1 juan_carlos juan_carlos 725M Nov 23 20:54 volumen.tar.gz
+
+=== Verificación SHA-256 ===
+./extras.lst: OK
+./inventario.txt: OK
+./manifiesto.txt: OK
+./volumen.tar.gz: OK
