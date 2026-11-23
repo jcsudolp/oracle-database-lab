@@ -1,0 +1,30 @@
+===== Verificación final de la multiplexación =====
+
+NAME									    STATUS  BLOCK_SIZE FILE_SIZE_BLKS
+--------------------------------------------------------------------------- ------- ---------- --------------
+/opt/oracle/oradata/FREE/control01.ctl							 16384		 1146
+/opt/oracle/oradata/FREE/control02.ctl							 16384		 1146
+/opt/oracle/oradata/FREE/control03.ctl							 16384		 1146
+
+===== Configuración persistente en SPFILE =====
+
+VALUE
+----------------------------------------------------------------------------------------------------------------------------------------------------------------
+ISSPEC
+------
+/opt/oracle/oradata/FREE/control01.ctl
+TRUE
+
+/opt/oracle/oradata/FREE/control02.ctl
+TRUE
+
+/opt/oracle/oradata/FREE/control03.ctl
+TRUE
+
+
+===== Estado de la instancia =====
+
+INSTANCE_NAME	 STATUS
+---------------- ------------
+FREE		 OPEN
+
