@@ -1,0 +1,8 @@
+===== PRUEBAS 4a Y 4b DEL PROFESOR =====
+4a. Borrar el grupo CURRENT -> ORA-01623: log 3 is current log for instance FREE
+(thread 1) - cannot drop
+4b. Borrar un miembro del grupo CURRENT -> ORA-01609: log 3 is the current log
+for thread 1 - cannot drop members
+
+PL/SQL procedure successfully completed.
+
