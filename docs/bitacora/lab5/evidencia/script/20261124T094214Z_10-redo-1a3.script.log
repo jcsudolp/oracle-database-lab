@@ -1,0 +1,54 @@
+
+===== 1. Grupos (v$log) y miembros (v$logfile) =====
+
+    GROUP#    THREAD#  SEQUENCE#	 MB    MEMBERS ARCHIVED STATUS	   FIRST_CHANGE#
+---------- ---------- ---------- ---------- ---------- -------- ---------- -------------
+	 1	    1	      13	200	     1 YES	INACTIVE	 3490643
+	 2	    1	      14	200	     1 YES	INACTIVE	 3492632
+	 3	    1	      15	200	     1 NO	CURRENT 	 3495411
+
+    GROUP# MEMBER					TYPE	STATUS
+---------- -------------------------------------------- ------- ----------
+	 1 /opt/oracle/oradata/FREE/redo01.log		ONLINE
+	 2 /opt/oracle/oradata/FREE/redo02.log		ONLINE
+	 3 /opt/oracle/oradata/FREE/redo03.log		ONLINE
+
+===== 2. Multiplexar: un segundo MIEMBRO en cada grupo (mismo contenido, escritos a la vez por LGWR) =====
+Grupo 1: añadido /opt/oracle/oradata/FREE/redo01b.log
+Grupo 2: añadido /opt/oracle/oradata/FREE/redo02b.log
+Grupo 3: añadido /opt/oracle/oradata/FREE/redo03b.log
+-- Un miembro recién añadido figura como INVALID hasta que LGWR escribe en él por primera vez
+
+    GROUP# MEMBER					STATUS
+---------- -------------------------------------------- ----------
+	 1 /opt/oracle/oradata/FREE/redo01.log
+	 1 /opt/oracle/oradata/FREE/redo01b.log 	INVALID
+	 2 /opt/oracle/oradata/FREE/redo02.log
+	 2 /opt/oracle/oradata/FREE/redo02b.log 	INVALID
+	 3 /opt/oracle/oradata/FREE/redo03.log
+	 3 /opt/oracle/oradata/FREE/redo03b.log 	INVALID
+
+===== 3. Cambio de log (log switch): el grupo CURRENT pasa al siguiente, en círculo =====
+
+    GROUP#  SEQUENCE# STATUS
+---------- ---------- ----------
+	 1	   16 CURRENT
+	 2	   14 INACTIVE
+	 3	   15 ACTIVE
+
+    GROUP#  SEQUENCE# STATUS
+---------- ---------- ----------
+	 1	   16 ACTIVE
+	 2	   17 CURRENT
+	 3	   15 ACTIVE
+-- Tras dos cambios, todos los miembros ya se han escrito: ninguno queda INVALID
+
+    GROUP# MEMBER					STATUS
+---------- -------------------------------------------- ----------
+	 1 /opt/oracle/oradata/FREE/redo01.log
+	 1 /opt/oracle/oradata/FREE/redo01b.log
+	 2 /opt/oracle/oradata/FREE/redo02.log
+	 2 /opt/oracle/oradata/FREE/redo02b.log
+	 3 /opt/oracle/oradata/FREE/redo03.log
+	 3 /opt/oracle/oradata/FREE/redo03b.log 	INVALID
+
